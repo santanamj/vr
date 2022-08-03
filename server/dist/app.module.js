@@ -20,13 +20,14 @@ AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot(),
-            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.typeOrmConfig),
+            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.default),
             curso_module_1.CursoModule,
             curso_aluno_module_1.CursoAlunoModule,
             aluno_module_1.AlunoModule
         ],
         controllers: [],
         providers: [],
+        exports: []
     })
 ], AppModule);
 exports.AppModule = AppModule;
