@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import typeOrmConfig from './config/typeorm.config';
 import { CursoModule } from './controllers/curso/curso.module';
-import { CursoAlunoModule } from './controllers/curso_aluno/curso_aluno.module';
+import { CursoalunoModule } from './controllers/curso_aluno/curso_aluno.module';
 import { AlunoModule } from './controllers/aluno/aluno.module';
 
 
@@ -12,7 +12,7 @@ import { AlunoModule } from './controllers/aluno/aluno.module';
     ConfigModule.forRoot(),   
     TypeOrmModule.forRoot(typeOrmConfig), 
     CursoModule,
-    CursoAlunoModule,
+    CursoalunoModule,
     AlunoModule
   ],
   controllers: [],

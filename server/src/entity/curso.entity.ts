@@ -5,13 +5,14 @@ import {
     Column,
     CreateDateColumn,
     UpdateDateColumn,
-    ManyToOne
+    ManyToOne,
+    OneToMany
 } from 'typeorm';
-import { CursoAlunoEntity } from './curso_aluno.entity';
+import { Cursoaluno } from './curso_aluno.entity';
 
 @Entity()
 
-export class CursoEntity extends BaseEntity {
+export class Curso extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -24,8 +25,8 @@ export class CursoEntity extends BaseEntity {
     @Column({ nullable: true, type:'text' })
     ementa: string;
 
-    @ManyToOne(()=> CursoAlunoEntity, cursoAluno => cursoAluno.curso)
-    cursoAluno: CursoAlunoEntity[];
+    @OneToMany(()=> Cursoaluno, cursoaluno => cursoaluno.curso)
+    cursoaluno: Cursoaluno[];
 
     @CreateDateColumn({ type: 'timestamp' })
     createAt: Date;

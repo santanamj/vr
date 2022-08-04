@@ -1,17 +1,18 @@
 import { forwardRef, Module } from '@nestjs/common';
-import { CursoAlunoController } from './curso_aluno.controller';
-import { CursoAlunoService } from '../../services/curso_aluno.service';
+import { CursoalunoController } from './curso_aluno.controller';
+import { CursoalunoService } from '../../services/curso_aluno.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CursoAlunoEntity } from 'src/entity/curso_aluno.entity';
+import { Cursoaluno } from 'src/entity/curso_aluno.entity';
 import { CursoModule } from '../curso/curso.module';
+import { AlunoModule } from '../aluno/aluno.module';
 
 @Module({
   imports:[
-    TypeOrmModule.forFeature([CursoAlunoEntity]),
+    TypeOrmModule.forFeature([Cursoaluno]),
     forwardRef(()=> CursoModule),
-    forwardRef(()=> CursoAlunoModule)
+    forwardRef(()=> AlunoModule)
   ],
-  controllers: [CursoAlunoController],
-  providers: [CursoAlunoService]
+  controllers: [CursoalunoController],
+  providers: [CursoalunoService]
 })
-export class CursoAlunoModule {}
+export class CursoalunoModule {}

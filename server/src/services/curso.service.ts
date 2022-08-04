@@ -2,18 +2,19 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CursoDto } from 'src/dtos/create-curso.dto';
 import { UpdateCursoDto } from 'src/dtos/update-curso.dto';
-import { CursoEntity } from 'src/entity/curso.entity';
+import { Curso } from 'src/entity/curso.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class CursoService {
     constructor(
-        @InjectRepository(CursoEntity)
-        private cursoRepository: Repository<CursoEntity>
+        @InjectRepository(Curso)
+        private cursoRepository: Repository<Curso>
     ) { }
     async createCurso(cursoDto: CursoDto) {
         const { codigo, descricao, ementa } = cursoDto;
-        const curso = new CursoEntity();
+        console.log(cursoDto)
+        const curso = new Curso();
         curso.codigo = codigo;
         curso.descricao = descricao;
         curso.ementa = ementa;
