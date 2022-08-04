@@ -1,3 +1,4 @@
+import { cursorTo } from 'readline';
 import {
     BaseEntity,
     Entity,   
@@ -5,24 +6,25 @@ import {
     Column,
     CreateDateColumn,
     UpdateDateColumn,
-    ManyToOne
+    OneToMany
 } from 'typeorm';
-import { CursoAlunoEntity } from './curso_aluno.entity';
+import { AlunoEntity } from './aluno.entity';
+import { CursoEntity } from './curso.entity';
 
 @Entity()
 
-export class AlunoEntity extends BaseEntity {
+export class CursoAlunoEntity extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column({ nullable: true, type:'int4' })
     codigo: number;
    
-    @Column({ nullable: true, type:'varchar', length:50 })
-    nome: string;
+    @OneToMany(()=> CursoEntity, curso => curso.cursoAluno, {cascade: true})
+    curso: CursoEntity;
 
-    @ManyToOne(()=> CursoAlunoEntity, cursoAluno => cursoAluno.aluno)
-    cursoAluno: CursoAlunoEntity[];
+    @OneToMany(()=> AlunoEntity, aluno => aluno.cursoAluno, {cascade: true})
+    aluno: AlunoEntity;
 
     @CreateDateColumn({ type: 'timestamp' })
     createAt: Date;
