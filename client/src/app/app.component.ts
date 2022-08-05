@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CursoService } from './services/curso.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'start';
+
+  constructor(
+    private cursoService: CursoService
+  ) {
+    this.cursoService.getCursos().subscribe()
+  }
 }

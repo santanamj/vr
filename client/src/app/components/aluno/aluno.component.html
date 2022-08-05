@@ -1,1 +1,17 @@
-<p>aluno works!</p>
+<div class="container">
+    <div class="row" *ngFor="let item of alunos$ | async">
+    <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.nome}}</h5>
+         
+          <div class="button-download">
+            <div class="perfil">
+                <i class="bi bi-person" routerLink="/aluno/{{item.id}}"></i>
+            </div>
+            <i class="bi bi-pencil-fill"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -4,10 +4,10 @@ import { map } from "rxjs/operators";
 import { Curso } from "../models/curso";
 
 export interface State {
-    curso: Curso[];    
+    cursos: Curso[];    
 }
 const state: State = {
-    curso: []    
+    cursos: []    
 }
 export class StoreCurso {
     private subject = new BehaviorSubject<State>(state);
@@ -23,6 +23,6 @@ export class StoreCurso {
         })
     }
     public getcurso(): Observable<Curso[]>{       
-        return this.store.pipe(map(store => store.curso))
+        return this.store.pipe(map(store => store.cursos))
     }
 }
