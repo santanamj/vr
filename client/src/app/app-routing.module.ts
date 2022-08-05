@@ -1,28 +1,34 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path : '', component : HomeComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
     path: 'aluno',
-    loadChildren: () => import('./aluno/aluno.module')
-        .then(mod => mod.AlunoModule)
-},
-{
-  path: 'curso',
-  loadChildren: () => import('./curso/curso.module')
+    loadChildren: () => import('./components/aluno/aluno.module')
+      .then(mod => mod.AlunoModule)
+  },
+  {
+    path: 'curso',
+    loadChildren: () => import('./components/curso/curso.module')
       .then(mod => mod.CursoModule)
-},
-{
-  path: 'curso-aluno',
-  loadChildren: () => import('./curso-aluno/curso-aluno.module')
+  },
+  {
+    path: 'curso-aluno',
+    loadChildren: () => import('./components/curso-aluno/curso-aluno.module')
       .then(mod => mod.CursoAlunoModule)
-},
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
