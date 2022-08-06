@@ -7,7 +7,7 @@ export default {
   host: 'localhost',
   port: 5432,
   username: 'postgres',
-  password: '02ms11d4',
+  password: '123456',
   database: 'vr',
   "entities": ["dist/**/*.entity.js"],
   // "migrations": [CursoData1659559017622, AlunoData1659560844370, CursoalunoData1659571799745],
