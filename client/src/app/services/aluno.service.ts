@@ -28,4 +28,10 @@ export class AlunoService {
   getAlunoId(id){
     return this.http.get(this.domain + 'api/aluno/' + id)
   }
+  create(data){
+    return this.http.post(this.domain + 'api/aluno/create', data)
+  }
+  updateAluno(id, data){
+    return this.http.patch(this.domain + 'api/aluno/' + id, data)
+  }
 }

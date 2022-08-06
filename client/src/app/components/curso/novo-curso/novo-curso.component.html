@@ -1,0 +1,25 @@
+<div class="container curso">
+    <div class="row">
+        <div class="col-12">
+            <h3>Criar curso</h3>
+        </div>
+        <div class="col-5">
+
+            <form  [formGroup]="form" (submit)="criarCurso()">
+                <div class="mb-3">
+                    <label for="FormControlInput1" class="form-label">Descrição</label>
+                    <input type="email" class="form-control" id="FormControlInput1" formControlName="descricao" placeholder="Descrição">
+                </div>
+                <div class="mb-3">
+                    <label for="FormControlTextarea1" class="form-label">Ementa do curso</label>
+                    <textarea class="form-control" id="FormControlTextarea1" formControlName="ementa" rows="3"></textarea>
+                  </div>
+             <button type="submit"  class="btn btn-primary" [disabled]="!form.valid">
+                Criar curso
+                </button>
+                <button type="button" [routerLink]="['/curso']" 
+                routerLinkActive="router-link-active"  class="btn btn-primary">Voltar</button>
+            </form>
+        </div>
+    </div>
+</div>

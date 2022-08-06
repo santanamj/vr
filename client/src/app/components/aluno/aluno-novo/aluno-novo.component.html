@@ -1,0 +1,21 @@
+<div class="container aluno">
+    <div class="row">
+        <div class="col-12">
+            <h3>Criar aluno</h3>
+        </div>
+        <div class="col-5">
+
+            <form  [formGroup]="form" (submit)="criarAluno()">
+                <div class="mb-3">
+                    <label for="FormControlInput1" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="FormControlInput1" formControlName="nome" placeholder="Nome">
+                </div>              
+             <button type="submit"  class="btn btn-primary" [disabled]="!form.valid">
+                Criar aluno
+                </button>
+                <button type="button" [routerLink]="['/aluno']" 
+                routerLinkActive="router-link-active"  class="btn btn-primary">Voltar</button>
+            </form>
+        </div>
+    </div>
+</div>

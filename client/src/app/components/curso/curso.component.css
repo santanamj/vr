@@ -1,0 +1,33 @@
+.card {
+  display: inline;
+}
+
+.add-novo {
+  padding-bottom: 5px;
+}
+
+.novo .btn-primary {
+  float: right;
+}
+
+.card-title .card-text {
+  width: 93%;
+  float: left;
+}
+
+.card-text {
+  width: 93%;
+  float: left;
+}
+
+.perfil {
+  cursor: pointer;
+}
+
+.bi-pencil-fill {
+  padding: 5px;
+}
+
+.bi-person {
+  padding: 5px;
+}

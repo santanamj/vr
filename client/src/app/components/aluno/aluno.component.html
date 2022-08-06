@@ -1,17 +1,21 @@
 <div class="container">
-    <div class="row" *ngFor="let item of alunos$ | async">
+  <div class="row add-novo">
+    <div class="novo">
+      <button type="button" [routerLink]="['/aluno/criar-aluno']" routerLinkActive="router-link-active"
+        class="btn btn-primary">Novo Aluno</button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let item of alunos$ | async">
     <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{item.nome}}</h5>
-         
-          <div class="button-download">
-            <div class="perfil">
-                <i class="bi bi-person" routerLink="/aluno/{{item.id}}"></i>
-            </div>
-            <i class="bi bi-pencil-fill"></i>
+      <div class="card-body">
+        <h5 class="card-title">{{item.nome}}</h5>
+        <div class="button-download">
+          <div class="perfil">
+            <i class="bi bi-person" routerLink="/aluno/{{item.id}}"></i>
+            <i class="bi bi-pencil-fill" routerLink="/aluno/editar/{{item.id}}"></i>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>

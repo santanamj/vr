@@ -1,7 +1,22 @@
 .button-download{
     display: inline-block;
   }
-  .perfil{
-    padding: 5px;
-    cursor: pointer;
+  .perfil{   
+    cursor: pointer;    
   }
+  .bi-pencil-fill{
+    padding: 5px;
+  }
+  .bi-person{
+    padding: 5px;
+  }
+  .add-novo{
+    padding-bottom: 5px;
+    }
+    .novo .btn-primary{
+        float: right;
+    }
+    .card-title{
+      width: 93%;
+    float: left;
+    }

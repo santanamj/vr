@@ -1,1 +1,22 @@
-<p>curso works!</p>
+<div class="container">
+  <div class="row add-novo">
+    <div class="novo">
+      <button type="button" [routerLink]="['/curso/novo']" routerLinkActive="router-link-active"
+        class="btn btn-primary">Novo curso</button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let item of cursos$ | async">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{item.descricao}}</h5>
+        <p class="card-text">{{item.ementa}}</p>
+        <div class="button-download">
+          <div class="perfil">
+            <i class="bi bi-person" routerLink="/curso/{{item.id}}"></i>
+            <i class="bi bi-pencil-fill" routerLink="/curso/update/{{item.id}}"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

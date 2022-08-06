@@ -13,7 +13,8 @@ import { RouterModule } from '@angular/router';
 import { StoreAluno } from './stores/aluno.store';
 import { AlunoService } from './services/aluno.service';
 import { StoreCurso } from './stores/curso.store';
-
+import { NotifyComponent } from './shared/notify/notify.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -26,15 +27,17 @@ import { StoreCurso } from './stores/curso.store';
     CursoAlunoModule,
     AlunoModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+   
   ],
   exports:[FormsModule,
     ReactiveFormsModule,],
-  providers: [ StoreAluno, StoreCurso],
+  providers: [ StoreAluno, StoreCurso, NotifyComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

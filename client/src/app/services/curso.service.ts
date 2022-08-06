@@ -18,14 +18,24 @@ export class CursoService {
     private storeCurso: StoreCurso
   ) { }
 
-  getCursos() {      
+  getCursos() {  
+    this.storeCurso.set('cursos', [])
     return this.http.get(this.domain + 'api/curso/getAll')
       .pipe(
         map((res: any) => {
-          console.log(res)
           this.storeCurso.set('cursos', res)     
          })
       );
+  }
+  getCursoId(id){
+    return this.http.get(this.domain + 'api/curso/' + id)
+  }
+
+  create(data){
+    return this.http.post(this.domain + 'api/curso/create', data)
+  }
+  updateCurso(id, data){
+    return this.http.patch(this.domain + 'api/curso/' + id, data)
   }
  
 }

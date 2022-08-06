@@ -1,37 +1,39 @@
 <div class="container">
-    <div class="row">
+    <div class="row datalhe">
         <div class="card">
-            <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">{{aluno?.nome}}</h5>             
-              <p class="card-text">Código: {{aluno?.codigo}} </p>
-              <ul class="list-group list-group-flush">
-                <p>Cursos</p>
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-              </ul>
+                <h5 class="card-title">{{aluno?.nome}}</h5>
+                <p class="card-text">Código: {{aluno?.codigo}} </p>
+
+                <ul class="list-group list-group-flush" *ngFor="let item of cursos">
+                    <li class="list-group-item">{{item?.curso.descricao}}
+                        <p class="card-text">Código do curso: {{item?.curso.codigo}} </p>
+                    </li>
+                    
+                </ul>
             </div>
-            <button >
+            <button *ngIf="!add" (click)="novoCurso()" class="button-add">
                 Adicionar novo curso
             </button>
-          </div>
+        </div>
     </div>
-    <form [formGroup]="form" (submit)="addCurso()" >
-        
-        <div class="select_curso" >
-            <select  
-            class="form-select" formControlName="curso">
-            <option disabled="disabled">Selecione o professor</option>    
-            <option *ngFor="let item of cursos$ | async" 
-            [value]="item.id">{{item?.descricao}}</option>
-            
-        </select>
+    <div *ngIf="add" class="add">
+        <form [formGroup]="form" (submit)="addCurso()">
+
+            <div class="select_curso">
+                <select class="form-select" formControlName="curso">
+                    <option disabled="disabled">Selecione o professor</option>
+                    <option *ngFor="let item of cursos$ | async" [value]="item.id">{{item?.descricao}}</option>
+
+                </select>
+            </div>
+            <div class="criar">
+            <button [disabled]="!form.valid" class="btn btn-primary">
+               Adicionar curso
+            </button>
+        </div>
+        </form>
     </div>
-    <button >
-        Save
-    </button>
-</form>
+    <button type="button" [routerLink]="['/aluno']" routerLinkActive="router-link-active"
+        class="btn btn-primary">Voltar</button>
 </div>
-
-

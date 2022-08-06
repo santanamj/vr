@@ -1,0 +1,21 @@
+<div class="container aluno">
+    <div class="row">
+        <div class="col-12">
+            <h3>Editar aluno</h3>
+        </div>
+        <div class="col-5" *ngIf="aluno && aluno.nome">
+
+            <form  [formGroup]="form" (submit)="editarAluno()">
+                <div class="mb-3">
+                    <label for="FormControlInput1"  class="form-label">Nome</label>
+                    <input  type="text" [(ngModel)]="aluno.nome" class="form-control" formControlName="nome" name="nome" placeholder="Nome">
+                </div>              
+             <button type="submit"  class="btn btn-primary" [disabled]="!form.valid">
+                Criar aluno
+                </button>
+                <button type="button" [routerLink]="['/aluno']" 
+                routerLinkActive="router-link-active"  class="btn btn-primary">Voltar</button>
+            </form>
+        </div>
+    </div>
+</div>

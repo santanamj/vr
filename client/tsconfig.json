@@ -20,11 +20,13 @@
     "module": "es2020",
     "noImplicitUseStrict": true,
     "strictPropertyInitialization": false,
+    
     "lib": [
       "es2020",
       "dom"
     ]
   },  
+
   "include": [
     "./src/**/*.ts", 
     "./tests/**/*.ts", 
