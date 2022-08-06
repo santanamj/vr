@@ -14,13 +14,21 @@ export class CursoalunoService {
     ) {}
 
     async createCursoaluno(clDto: CursoalunoDto){
-        const {codigo, cursoId, alunoId} = clDto;
+        const {codigo, cursoId, alunoId} = clDto;      
         const curso = await Curso.findOne(cursoId)
-        const aluno = await Aluno.findOne(alunoId);
+        const aluno = await Aluno.findOne(alunoId);        
         const curso_aluno = new Cursoaluno();
-        curso_aluno.codigo = codigo;
+        const atualCodigo = await Cursoaluno.createQueryBuilder('curso_aluno')
+        .orderBy('curso_aluno.codigo', 'DESC')
+        .getOne();
+        if(atualCodigo){
+            curso_aluno.codigo = Number(atualCodigo.codigo) + 1;
+        }else{
+            curso_aluno.codigo = 1;
+        }        
         curso_aluno.curso = curso;
         curso_aluno.aluno = aluno;
+                                   
 
         const create = await this.curso_alunoRepo.save(curso_aluno)
         return create
